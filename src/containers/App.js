@@ -11,12 +11,17 @@ class App extends Component {
   state = {
     collapsed: true,
     subs: [],
-    selectedSub: {},
+    selectedSub: {
+      display_name: "all",
+      url: "/r/all/",
+      icon_img: require('../images/Reddit-icon.png'), //url 
+    },
     posts: []
   };
   
   componentDidMount() {
     this.fetchSubs();
+    this.fetchPosts(this.state.selectedSub.url)
   }
 
   fetchSubs = async () => {
@@ -41,7 +46,13 @@ class App extends Component {
   selectSub = (sub) => {
     this.toggleCollapse();
     this.fetchPosts(sub.url);
-    this.setState({selectedSub: sub});
+    this.setState({
+      selectedSub: {
+        display_name: sub.display_name,
+        url: sub.url,
+        icon_img: sub.icon_img
+      }
+    });
   }
 
   render() {
@@ -55,7 +66,7 @@ class App extends Component {
           subs={subs}
           selectSub={this.selectSub}
         />
-        {selectedSub.id ? 
+        {selectedSub.url.length > 0 ? 
           <Content sub={selectedSub} posts={posts}/>
           : <ContentPlaceholder />
         }
