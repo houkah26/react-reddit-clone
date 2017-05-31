@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from './Post';
+import LoadingIcon from './LoadingIcon';
 
 // const thumbnailExists = (thumbnail) => {
 //   return thumbnail.slice(0, 4) === "http"
@@ -10,7 +11,7 @@ const Content = ({ sub, posts }) => (
     <h2>r/{sub.display_name}</h2>
     <div>
       {posts.length === 0 ?
-        <div>Loading...</div> :
+        <LoadingIcon /> :
         posts.map(post => (
           <Post 
             key={post.data.id}

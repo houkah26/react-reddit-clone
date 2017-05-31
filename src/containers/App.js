@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import TitleBar from '../components/TitleBar';
 import Navigation from '../components/Navigation';
 import Content from '../components/Content';
-import ContentPlaceholder from '../components/ContentPlaceholder';
 
 import './App.css';
 import './Content.css';
@@ -32,6 +31,7 @@ class App extends Component {
   }
 
   fetchPosts = async (subUrl) => {
+    this.setState({posts: []});
     const response = await fetch(`https://www.reddit.com${subUrl}.json`);
     const data = await response.json();
     const posts = data.data.children;
@@ -66,10 +66,7 @@ class App extends Component {
           subs={subs}
           selectSub={this.selectSub}
         />
-        {selectedSub.url.length > 0 ? 
-          <Content sub={selectedSub} posts={posts}/>
-          : <ContentPlaceholder />
-        }
+        <Content sub={selectedSub} posts={posts}/>
       </div>
     );
   }
