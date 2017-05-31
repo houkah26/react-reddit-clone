@@ -1,0 +1,20 @@
+button {
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .navigation.collapse {
+    display: inherit;
+  }
+
+  .nav-toggler {
+    visibility: hidden;
+  }
+
+  .navigation {
+    float: right;
+    width: 200px;
+    /*background: blue;*/
+  }
+
+}

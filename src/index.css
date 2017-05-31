@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  color: #222;
+  background: #f4f4f4;
+  font: 400 10px CoreSans, Arial,sans-serif;
+}
+
+@media (min-width: 725px) {
+  body {
+    font-size: 18px;
+  }
+
+  .navigation button {
+    width: 100%;
+    text-align: left;
+    height: inherit;
+    font-size: inherit;
+  }
+}

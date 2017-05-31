@@ -1,0 +1,10 @@
+{posts.map(post => (
+  <Post 
+    key={post.data.id}
+    title={post.data.title}
+    url={post.data.url}
+    numComments={post.data.num_comments}
+    upVotes={post.data.ups}
+    thumbnail={this.setThumbnail(post.data.thumbnail)}
+  />   
+))}

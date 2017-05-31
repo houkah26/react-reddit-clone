@@ -1,0 +1,39 @@
+.post {
+  display: flex;
+  margin-top: 1em;
+  padding-right: 0.25em;
+}
+
+.post .image-container {
+  padding-right: 0.25em;
+  flex-basis: 5em;
+  width: 5em;
+}
+
+.post .image-container img {
+  display: block;
+  width: 5em;
+  height: auto;
+  border-radius: 0.25em;
+}
+
+
+.post a {
+  text-decoration: none;
+}
+
+.post .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post .container .info {
+  padding-top: 0.25em;
+  color: gray;
+}
+
+.post .container .info span {
+  padding-right: 0.25em;
+  display: inline-block;
+}

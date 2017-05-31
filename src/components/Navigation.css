@@ -1,0 +1,22 @@
+.navigation {
+  padding-bottom: 15px;
+}
+
+.navigation.collapse {
+  display: none;
+}
+
+.navigation button {
+  width: 100%;
+  text-align: center;
+  height: 2em;
+  font-size: 2em;
+}
+
+.navigation>span {
+  font-size: 1.5em;
+  padding-left: 0.5em;
+}
+
+
+
