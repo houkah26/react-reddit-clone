@@ -1,8 +1,13 @@
 import React from 'react';
 
-const NavItem = ({ sub, selectSub }) =>  (
+const NavItem = ({ sub, selectSub, toggleCollapse }) =>  (
   <div>
-    <button onClick={() => selectSub(sub)}>{sub.display_name}</button>
+    <button onClick={() => {
+      selectSub(sub);
+      toggleCollapse();
+    }}>
+      {sub.display_name}
+    </button>
   </div>
 )
 

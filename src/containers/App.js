@@ -6,21 +6,28 @@ import Content from '../components/Content';
 import './App.css';
 import './Content.css';
 
+//Default sub r/all
+const defaultSub = {
+  display_name: "all",
+  url: "/r/all/",
+  icon_img: require('../images/Reddit-icon.png')
+};
+
 class App extends Component {
   state = {
     collapsed: true,
     subs: [],
     selectedSub: {
-      display_name: "all",
-      url: "/r/all/",
-      icon_img: require('../images/Reddit-icon.png'), //url 
+      display_name: "",
+      url: "",
+      icon_img: "", //url 
     },
     posts: []
   };
   
   componentDidMount() {
     this.fetchSubs();
-    this.fetchPosts(this.state.selectedSub.url)
+    this.selectSub(defaultSub);
   }
 
   fetchSubs = async () => {
@@ -44,7 +51,6 @@ class App extends Component {
   }
 
   selectSub = (sub) => {
-    this.toggleCollapse();
     this.fetchPosts(sub.url);
     this.setState({
       selectedSub: {
@@ -56,15 +62,24 @@ class App extends Component {
   }
 
   render() {
-    const { collapsed, subs, selectedSub, posts } = this.state;
+    const {
+      collapsed,
+      subs,
+      selectedSub,
+      posts
+    } = this.state;
 
     return (
       <div className="App">
-        <TitleBar toggleCollapse={this.toggleCollapse} />
+        <TitleBar 
+          toggleCollapse={this.toggleCollapse}
+          selectDefaultSub={() => this.selectSub(defaultSub)}
+        />
         <Navigation 
           collapsed={collapsed}
           subs={subs}
           selectSub={this.selectSub}
+          toggleCollapse={this.toggleCollapse}
         />
         <Content sub={selectedSub} posts={posts}/>
       </div>

@@ -3,9 +3,7 @@ import NavItem from './NavItem';
 
 import './Navigation.css';
 
-// const navItems = [1, 2, 3, 4, 5];
-
-const Navigation = ({ collapsed, selectSub, subs }) => {
+const Navigation = ({ collapsed, selectSub, subs, toggleCollapse }) => {
   const navClass = collapsed ? "collapse" : ""
 
   return (
@@ -13,7 +11,12 @@ const Navigation = ({ collapsed, selectSub, subs }) => {
       <span>SUBREDDITS:</span>
       <br/>
       {subs.map(sub => (
-        <NavItem key={sub.data.id} sub={sub.data} selectSub={selectSub} />
+        <NavItem 
+          key={sub.data.id}
+          sub={sub.data}
+          selectSub={selectSub}
+          toggleCollapse={toggleCollapse}
+        />
       ))}
     </div>
   );
