@@ -4,13 +4,12 @@ import Navigation from '../components/Navigation';
 import Content from '../components/Content';
 
 import './App.css';
-import './Content.css';
 
 //Default sub r/all
 const defaultSub = {
   display_name: "all",
   url: "/r/all/",
-  icon_img: require('../images/Reddit-icon.png')
+  icon_img: require('../images/Reddit-icon.png') //Default local image
 };
 
 class App extends Component {

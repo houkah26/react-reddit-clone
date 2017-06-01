@@ -2,9 +2,7 @@ import React from 'react';
 import Post from './Post';
 import LoadingIcon from './LoadingIcon';
 
-// const thumbnailExists = (thumbnail) => {
-//   return thumbnail.slice(0, 4) === "http"
-// }
+import './Content.css';
 
 const Content = ({ sub, posts }) => (
   <div className="content">
