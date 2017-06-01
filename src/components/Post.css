@@ -22,6 +22,10 @@
   text-decoration: none;
 }
 
+.post a:hover {
+  text-decoration: underline;
+}
+
 .post .container {
   display: flex;
   flex-direction: column;
