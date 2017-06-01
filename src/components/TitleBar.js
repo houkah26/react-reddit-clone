@@ -8,6 +8,7 @@ const TitleBar = ({ toggleCollapse, selectDefaultSub }) => (
       src={require('../images/Reddit-icon.png')}
       alt="r/all"
       onClick={selectDefaultSub}
+      title="r/all"
     />
     <span className="title">Houkah Reddit</span>
     <div className="nav-toggler">
