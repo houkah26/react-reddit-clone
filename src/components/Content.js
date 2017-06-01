@@ -11,16 +11,18 @@ const Content = ({ sub, posts }) => (
       {posts.length === 0 ?
         <LoadingIcon /> :
         posts.map(post => (
-          <Post 
-            key={post.data.id}
-            title={post.data.title}
-            url={post.data.url}
-            numComments={post.data.num_comments}
-            upVotes={post.data.ups}
-            thumbnailUrls={[(post.data.thumbnail || ""), (sub.icon_img || "")]}
-            author={post.data.author}
-            createdTime={post.data.created}
-          />   
+          <div key={post.data.id}>
+            <Post 
+              title={post.data.title}
+              url={post.data.url}
+              numComments={post.data.num_comments}
+              upVotes={post.data.ups}
+              thumbnailUrls={[(post.data.thumbnail || ""), (sub.icon_img || "")]}
+              author={post.data.author}
+              createdTime={post.data.created}
+            />
+            <hr />   
+          </div>
         ))
       }
     </div>

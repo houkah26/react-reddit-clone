@@ -8,13 +8,17 @@ button {
   }
 
   .nav-toggler {
-    visibility: hidden;
+    display: none;
   }
 
   .navigation {
     float: right;
     width: 200px;
     /*background: blue;*/
+  }
+
+  .navigation > span {
+    font-size: 0.9em;
   }
 
 }

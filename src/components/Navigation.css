@@ -18,5 +18,12 @@
   padding-left: 0.5em;
 }
 
-
+@media (min-width: 725px) {
+  .navigation button {
+    width: 100%;
+    text-align: left;
+    height: inherit;
+    font-size: inherit;
+  }
+}
 

@@ -12,7 +12,7 @@ const defaultSub = {
   icon_img: require('../images/Reddit-icon.png') //Default local image
 };
 
-class App extends Component {
+export default class App extends Component {
   state = {
     collapsed: true,
     subs: [],
@@ -73,6 +73,7 @@ class App extends Component {
         <TitleBar 
           toggleCollapse={this.toggleCollapse}
           selectDefaultSub={() => this.selectSub(defaultSub)}
+          selectSub={this.selectSub}
         />
         <Navigation 
           collapsed={collapsed}
@@ -85,5 +86,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

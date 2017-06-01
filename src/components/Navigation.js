@@ -8,7 +8,7 @@ const Navigation = ({ collapsed, selectSub, subs, toggleCollapse }) => {
 
   return (
     <div className={"navigation " + navClass}>
-      <span>SUBREDDITS:</span>
+      <span>POPULAR SUBREDDITS</span>
       <br/>
       {subs.map(sub => (
         <NavItem 
