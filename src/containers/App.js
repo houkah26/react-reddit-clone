@@ -75,13 +75,15 @@ export default class App extends Component {
           selectDefaultSub={() => this.selectSub(defaultSub)}
           selectSub={this.selectSub}
         />
-        <Navigation 
-          collapsed={collapsed}
-          subs={subs}
-          selectSub={this.selectSub}
-          toggleCollapse={this.toggleCollapse}
-        />
-        <Content sub={selectedSub} posts={posts}/>
+        <div className="container">
+          <Navigation 
+            collapsed={collapsed}
+            subs={subs}
+            selectSub={this.selectSub}
+            toggleCollapse={this.toggleCollapse}
+          />
+          <Content sub={selectedSub} posts={posts}/>
+        </div>
       </div>
     );
   }

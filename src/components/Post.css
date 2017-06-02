@@ -38,6 +38,11 @@
   color: gray;
 }
 
+.post .container .info a {
+  color: gray;
+  text-decoration: underline;
+}
+
 .post .container .info span {
   padding-right: 0.25em;
   display: inline-block;
