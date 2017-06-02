@@ -18,6 +18,21 @@
   padding-left: 0.5em;
 }
 
+.navigation button {
+  background-color: #cee3f8;
+  border-style: solid;
+  border-color: steelblue;
+  border-top-width: 0;
+}
+
+.navigation button:first-child {
+  border-top-width: initial;
+}
+
+.navigation button:hover {
+  background-color: white;
+}
+
 @media (min-width: 725px) {
   .navigation button {
     width: 100%;

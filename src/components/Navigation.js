@@ -10,14 +10,16 @@ const Navigation = ({ collapsed, selectSub, subs, toggleCollapse }) => {
     <div className={"navigation " + navClass}>
       <span>POPULAR SUBREDDITS</span>
       <br/>
-      {subs.map(sub => (
-        <NavItem 
-          key={sub.data.id}
-          sub={sub.data}
-          selectSub={selectSub}
-          toggleCollapse={toggleCollapse}
-        />
-      ))}
+      <div>
+        {subs.map(sub => (
+          <NavItem 
+            key={sub.data.id}
+            sub={sub.data}
+            selectSub={selectSub}
+            toggleCollapse={toggleCollapse}
+          />
+        ))}
+      </div>
     </div>
   );
 };
