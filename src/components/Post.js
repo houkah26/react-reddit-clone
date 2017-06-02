@@ -16,7 +16,7 @@ const Post = ({ title, url, thumbnailUrls, author, upVotes, numComments }) => (
       />
     </div>
     <div className="container">
-      <a href={url}>{title}</a>
+      <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
       <div className="info">
         <span>Author: {author}</span>
         <span>Up-Votes: {upVotes}</span>

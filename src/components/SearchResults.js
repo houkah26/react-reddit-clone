@@ -1,24 +1,18 @@
 import React from 'react';
 
-const SearchResults = ({ searchResults, selectSub, collapsed, toggleCollapse }) => {
-  const collapseClass = collapsed ? "collapse" : "";
+const SearchResults = ({ searchResults, selectSub }) => (
+  <div className="search-results">
+    <ul>
+      {searchResults.map(sub => (
+        <li
+          key={sub.id}
+          onClick={() => {selectSub(sub)}}
+        >
+          {sub.display_name}
+        </li>
+      ))}
+    </ul>
+  </div>
+)
 
-  return (
-    <div className={"search-results " + collapseClass}>
-      <ul>
-        {searchResults.map(sub => (
-          <li
-            key={sub.id}
-            onClick={() => {
-              selectSub(sub);
-              toggleCollapse();
-            }}
-          >
-            {sub.display_name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
 export default SearchResults;

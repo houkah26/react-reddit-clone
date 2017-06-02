@@ -20,18 +20,18 @@
   box-sizing: border-box;
   position: absolute;
   background-color: white;
-  width: 100%;
+  min-width: 100%;
   border: 0.1px solid gray;
-  /*display: none;*/
-}
-
-.search .search-results.collapse {
   display: none;
 }
 
-/*.search input:focus + .search-results {
+.search input:focus + .search-results {
   display: block;
-}*/
+}
+
+.search .search-results:hover {
+  display: block;
+}
 
 .search .search-results ul {
   list-style-type: none;

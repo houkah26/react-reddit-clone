@@ -22,8 +22,7 @@ const sortResults = (searchResults) => {
 export default class SearchForm extends Component {
   state = {
     searchTerm: '',
-    searchResults: [],
-    collapsed: true,
+    searchResults: []
   };
 
   handleChange = (event) => {
@@ -42,16 +41,10 @@ export default class SearchForm extends Component {
     this.setState({searchResults: sortResults(results)});
   }
 
-  toggleCollapse = () => {
-    const collapsed = !this.state.collapsed;
-    this.setState({collapsed});
-  }
-
   render() {
     const {
       searchTerm,
-      searchResults,
-      collapsed
+      searchResults
     } = this.state;
 
     return (
@@ -63,13 +56,10 @@ export default class SearchForm extends Component {
             placeholder="subreddit"
             value={searchTerm}
             onChange={this.handleChange}
-            onFocus={this.toggleCollapse}
           />
           <SearchResults 
             searchResults={searchResults}
             selectSub={this.props.selectSub}
-            collapsed={collapsed}
-            toggleCollapse={this.toggleCollapse}
           />
         </form>
       </div>
