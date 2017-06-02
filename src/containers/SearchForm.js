@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { sortBy } from 'lodash';
 import SearchResults from '../components/SearchResults';
 
 import './SearchForm.css'
 
-const sortResults = (searchResults) => {
-  const sortedResults = sortBy(searchResults, [sub => sub.data.subscribers]).reverse();
-  
+const filterResults = (searchResults) => {
   let filteredResults = [];
-  sortedResults.forEach(sub => {
+  searchResults.forEach(sub => {
     if (sub.data.subscribers > 1) {
       filteredResults.push(sub.data);
     }
@@ -38,7 +35,7 @@ export default class SearchForm extends Component {
     const response = await fetch(`https://www.reddit.com/subreddits/search.json?q=${searchTerm}`);
     const data = await response.json();
     const results = data.data.children;
-    this.setState({searchResults: sortResults(results)});
+    this.setState({searchResults: filterResults(results)});
   }
 
   render() {
