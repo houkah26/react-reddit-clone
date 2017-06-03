@@ -40,7 +40,7 @@ const Post = ({
       />
     </div>
     <div className="container">
-      <a href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+      <a className="title" href={url} target="_blank" rel="noopener noreferrer">{title}</a>
       <div className="info">
         <span>Submitted by {author} on {timeConverter(createdTime)},</span>
         <span>Up-Votes: {upVotes},</span>

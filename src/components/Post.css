@@ -7,20 +7,21 @@
 
 .post .image-container {
   padding-right: 0.25em;
-  flex-basis: 5em;
-  width: 5em;
+  flex-basis: 10em;
+  width: 10em;
 }
 
 .post .image-container img {
   display: block;
-  width: 5em;
+  width: 10em;
   height: auto;
   border-radius: 0.25em;
 }
 
 
-.post a {
+.post .title {
   text-decoration: none;
+  font-size: 1.25em;
 }
 
 .post a:hover {
