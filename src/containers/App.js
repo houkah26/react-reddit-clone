@@ -44,10 +44,14 @@ export default class App extends Component {
     this.setState({posts: posts});
   }
 
-  toggleCollapse = () => {
-    const collapsed = !this.state.collapsed;
+  toggleCollapse = (action) => {
+    const collapsed = action === "collapse" ? true : !this.state.collapsed;
     this.setState({collapsed});
   }
+
+  // setCollapsed = () => {
+  //   this.setState({collapsed: true});
+  // }
 
   selectSub = (sub) => {
     this.fetchPosts(sub.url);
@@ -74,6 +78,7 @@ export default class App extends Component {
           toggleCollapse={this.toggleCollapse}
           selectDefaultSub={() => this.selectSub(defaultSub)}
           selectSub={this.selectSub}
+          setCollapsed={this.setCollapsed}
         />
         <div className="container">
           <Navigation 

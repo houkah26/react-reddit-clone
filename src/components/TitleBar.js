@@ -3,7 +3,13 @@ import SearchForm from '../containers/SearchForm';
 
 import './TitleBar.css';
 
-const TitleBar = ({ toggleCollapse, selectDefaultSub, searchSub, selectSub }) => (
+const TitleBar = ({
+  toggleCollapse,
+  selectDefaultSub,
+  searchSub,
+  selectSub,
+  // setCollapsed
+}) => (
   <div className="title-bar">
     <img 
       src={require('../images/Reddit-icon.png')}
@@ -13,7 +19,7 @@ const TitleBar = ({ toggleCollapse, selectDefaultSub, searchSub, selectSub }) =>
     />
     <span className="title">Houkah reddit</span>
     <div>
-      <SearchForm selectSub={selectSub}/>
+      <SearchForm selectSub={selectSub} toggleCollapse={toggleCollapse}/>
     </div>
     <div className="nav-toggler">
       <i className="fa fa-bars fa-3x nav-toggler-icon" aria-hidden="true" 

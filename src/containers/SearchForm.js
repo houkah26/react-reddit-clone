@@ -57,6 +57,7 @@ export default class SearchForm extends Component {
           <SearchResults 
             searchResults={searchResults}
             selectSub={this.props.selectSub}
+            toggleCollapse={this.props.toggleCollapse}
           />
         </form>
       </div>
