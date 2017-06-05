@@ -49,10 +49,6 @@ export default class App extends Component {
     this.setState({collapsed});
   }
 
-  // setCollapsed = () => {
-  //   this.setState({collapsed: true});
-  // }
-
   selectSub = (sub) => {
     this.fetchPosts(sub.url);
     this.setState({
