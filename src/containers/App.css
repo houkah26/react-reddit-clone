@@ -9,22 +9,52 @@ button {
 }
 
 @media (min-width: 900px) {
+  body {
+    overflow-y: scroll;
+  }
+
   .navigation.collapse {
-    display: inherit;
+    display: block;
   }
 
   .nav-toggler {
     display: none;
   }
 
+  .App>.container {
+    display: flex;
+  }
+
+  .content {
+    width: calc(100% - 12.2em);
+  }
+
+  .nav-container {
+    order: 2;
+    width: 15%;
+    position: relative;
+    /*width: 200px;*/
+  }
+
   .navigation {
-    float: right;
-    width: 200px;
-    /*background: blue;*/
+    /*float: right;*/
+    width: 11em;
+    position: fixed;
+    right: 1em;
   }
 
   .navigation > span {
     font-size: 0.9em;
   }
 
+}
+
+@media (min-width: 1400px) {
+  .content {
+    width: 100%;
+  }
+
+  .nav-container {
+    width: 0%;
+  }
 }

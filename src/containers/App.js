@@ -77,12 +77,14 @@ export default class App extends Component {
           setCollapsed={this.setCollapsed}
         />
         <div className="container">
-          <Navigation 
-            collapsed={collapsed}
-            subs={subs}
-            selectSub={this.selectSub}
-            toggleCollapse={this.toggleCollapse}
-          />
+          <div className="nav-container">
+            <Navigation 
+              collapsed={collapsed}
+              subs={subs}
+              selectSub={this.selectSub}
+              toggleCollapse={this.toggleCollapse}
+            />
+          </div>
           <Content sub={selectedSub} posts={posts}/>
         </div>
       </div>
