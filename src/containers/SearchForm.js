@@ -23,7 +23,10 @@ export default class SearchForm extends Component {
   };
 
   handleChange = (event) => {
-    this.setState({searchTerm: event.target.value});
+    this.setState({
+      searchTerm: event.target.value,
+      searchResults: []
+    });
   }
 
   handleSubmit = (event) => {
