@@ -22,7 +22,10 @@ const TitleBar = ({
     </div>
     <div className="nav-toggler">
       <i className="fa fa-bars fa-3x nav-toggler-icon" aria-hidden="true" 
-        onClick={toggleCollapse}
+        onClick={() => {
+          toggleCollapse();
+          window.scrollTo(0, 0);
+        }}
       />
     </div>
   </div>
