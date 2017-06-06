@@ -8,7 +8,6 @@ const TitleBar = ({
   selectDefaultSub,
   searchSub,
   selectSub,
-  // setCollapsed
 }) => (
   <div className="title-bar">
     <img 
