@@ -26,18 +26,16 @@ button {
   }
 
   .content {
-    width: calc(100% - 12.2em);
+    width: calc(100% - 12.5em);
   }
 
   .nav-container {
     order: 2;
     width: 15%;
     position: relative;
-    /*width: 200px;*/
   }
 
   .navigation {
-    /*float: right;*/
     width: 11em;
     position: fixed;
     right: 1em;
@@ -49,7 +47,7 @@ button {
 
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1725px) {
   .content {
     width: 100%;
   }
