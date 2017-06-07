@@ -16,7 +16,7 @@ const TitleBar = ({
       onClick={selectDefaultSub}
       title="r/all"
     />
-    <span className="title">Houkah reddit</span>
+    <span className="title">houkah reddit</span>
     <div>
       <SearchForm selectSub={selectSub} toggleCollapse={toggleCollapse}/>
     </div>

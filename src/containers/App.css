@@ -13,6 +13,10 @@ button {
     overflow-y: scroll;
   }
 
+  .title-bar .title {
+    font-size: 2em;
+  }
+
   .navigation.collapse {
     display: block;
   }
