@@ -6,7 +6,7 @@ import './SearchForm.css'
 const filterResults = (searchResults) => {
   let filteredResults = [];
   searchResults.forEach(sub => {
-    if (sub.data.subscribers > 1) {
+    if (sub.data.subscribers > 5) {
       filteredResults.push(sub.data);
     }
   });
