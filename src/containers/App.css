@@ -30,7 +30,7 @@ button {
   }
 
   .content {
-    width: calc(100% - 12.5em);
+    width: calc(100% - 12em);
   }
 
   .nav-container {
@@ -42,7 +42,7 @@ button {
   .navigation {
     width: 11em;
     position: fixed;
-    right: 1em;
+    right: 0.5em;
   }
 
   .navigation > span {
