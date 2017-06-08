@@ -4,6 +4,9 @@ import LoadingIcon from './LoadingIcon';
 
 import './Post.css';
 
+//Default reddit logo
+import redditLogo from '../images/Reddit-icon.png';
+
 const timeConverter = (UNIX_timestamp) => {
   const a = new Date(UNIX_timestamp * 1000);
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -34,7 +37,7 @@ const Post = ({
         src={[
           thumbnailUrls[0],
           thumbnailUrls[1],
-          require('../images/Reddit-icon.png')
+          redditLogo
         ]}
         loader={<LoadingIcon />}
       />

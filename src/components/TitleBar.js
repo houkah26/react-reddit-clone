@@ -3,6 +3,9 @@ import SearchForm from '../containers/SearchForm';
 
 import './TitleBar.css';
 
+//Reddit Logo
+import logo from '../images/Reddit-icon.png';
+
 const TitleBar = ({
   toggleCollapse,
   selectDefaultSub,
@@ -11,7 +14,7 @@ const TitleBar = ({
 }) => (
   <div className="title-bar">
     <img 
-      src={require('../images/Reddit-icon.png')}
+      src={logo}
       alt="r/all"
       onClick={selectDefaultSub}
       title="r/all"
