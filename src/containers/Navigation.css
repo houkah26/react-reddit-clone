@@ -33,12 +33,29 @@
   background-color: white;
 }
 
+.navigation button a {
+  line-height: 1.8em;
+  vertical-align: middle;
+}
+
+.navigation button a, a:visited {
+  color: rgb(0, 75, 255);
+}
+
+.navigation button a.active {
+  color: orangered;
+}
+
 @media (min-width: 725px) {
   .navigation button {
     width: 100%;
     text-align: left;
     height: inherit;
     font-size: inherit;
+  }
+
+  .navigation button a {
+    line-height: 1.3;
   }
 }
 

@@ -1,93 +1,51 @@
 import React, { Component } from 'react';
+import { 
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+	Switch
+} from 'react-router-dom';
 import TitleBar from '../components/TitleBar';
-import Navigation from '../components/Navigation';
-import Content from '../components/Content';
+import InvalidUrl from '../components/InvalidUrl';
+import Navigation from '../containers/Navigation';
+import Content from '../containers/Content';
 
 import './App.css';
 
-//Default sub r/all
-const defaultSub = {
-  display_name: "all",
-  url: "/r/all/",
-  icon_img: require('../images/Reddit-icon.png') //Default local image
-};
-
 export default class App extends Component {
   state = {
-    collapsed: true,
-    subs: [],
-    selectedSub: {
-      display_name: "",
-      url: "",
-      icon_img: "", //url 
-    },
-    posts: []
+    collapsed: true, //state of nav
   };
-  
-  componentDidMount() {
-    this.fetchSubs();
-    this.selectSub(defaultSub);
-  }
-
-  fetchSubs = async () => {
-    const response = await fetch('https://www.reddit.com/reddits.json');
-    const data = await response.json();
-    const subs = data.data.children;
-    this.setState({subs: subs});
-  }
-
-  fetchPosts = async (subUrl) => {
-    this.setState({posts: []});
-    const response = await fetch(`https://www.reddit.com${subUrl}.json`);
-    const data = await response.json();
-    const posts = data.data.children;
-    this.setState({posts: posts});
-  }
 
   toggleCollapse = (action) => {
     const collapsed = action === "collapse" ? true : !this.state.collapsed;
     this.setState({collapsed});
   }
 
-  selectSub = (sub) => {
-    this.fetchPosts(sub.url);
-    this.setState({
-      selectedSub: {
-        display_name: sub.display_name,
-        url: sub.url,
-        icon_img: sub.icon_img
-      }
-    });
-  }
-
   render() {
-    const {
-      collapsed,
-      subs,
-      selectedSub,
-      posts
-    } = this.state;
+    const { collapsed } = this.state;
 
     return (
-      <div className="App">
-        <TitleBar 
-          toggleCollapse={this.toggleCollapse}
-          selectDefaultSub={() => this.selectSub(defaultSub)}
-          selectSub={this.selectSub}
-          setCollapsed={this.setCollapsed}
-        />
-        <div className="container">
-          <div className="nav-container">
-            <Navigation 
-              collapsed={collapsed}
-              subs={subs}
-              selectSub={this.selectSub}
-              toggleCollapse={this.toggleCollapse}
-            />
+      <Router>
+        <div className="App">
+          <TitleBar toggleCollapse={this.toggleCollapse} />
+          <div className="container">
+            <div className="nav-container">
+              <Navigation 
+                collapsed={collapsed}
+                toggleCollapse={this.toggleCollapse}
+              />
+            </div>
+						<Switch>
+							<Route exact path="/" render={() => (
+								<Redirect to="/r/all" />
+							)}/>
+							<Route path="/r/:sub" component={Content} />
+							<Route component={InvalidUrl} />
+						</Switch>
           </div>
-          <Content sub={selectedSub} posts={posts}/>
         </div>
-      </div>
+      </Router>
     );
   }
 }
