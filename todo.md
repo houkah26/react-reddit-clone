@@ -22,6 +22,9 @@
     * CSS Modules
 
 2. Rebrand as Trumpless-Reddit
-    * Filter out any sub-reddits and posts containing a reference to Donald Trump 
+    * Filter out any sub-reddits and posts containing a reference to Donald Trump
+    
+3. Rebrand as unbsub-reddit
+    * Add the ability to specify certain terms to filter out of any posts
     
   
