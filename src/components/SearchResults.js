@@ -1,17 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SearchResults = ({ searchResults, selectSub, toggleCollapse }) => (
+const SearchResults = ({ searchResults, toggleCollapse }) => (
   <div className="search-results">
     <ul>
       {searchResults.map(sub => (
         <li
           key={sub.id}
           onClick={() => {
-            selectSub(sub);
             toggleCollapse("collapse");
           }}
         >
-          {sub.display_name}
+          <Link 
+            to={sub.url}
+            style={{display: 'block', height: '100%', textDecoration: 'none'}}
+          >
+            {sub.display_name}
+          </Link>
         </li>
       ))}
     </ul>

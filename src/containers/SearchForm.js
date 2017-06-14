@@ -36,8 +36,8 @@ export default class SearchForm extends Component {
 
   searchSub = async (searchTerm) => {
     const response = await fetch(`https://www.reddit.com/subreddits/search.json?q=${searchTerm}`);
-    const data = await response.json();
-    const results = data.data.children;
+    const jsonResponse = await response.json();
+    const results = jsonResponse.data.children;
     this.setState({searchResults: filterResults(results)});
   }
 
@@ -59,7 +59,6 @@ export default class SearchForm extends Component {
           />
           <SearchResults 
             searchResults={searchResults}
-            selectSub={this.props.selectSub}
             toggleCollapse={this.props.toggleCollapse}
           />
         </form>

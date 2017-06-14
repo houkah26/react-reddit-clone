@@ -1,11 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const NavItem = ({ sub, selectSub, toggleCollapse }) =>  (
+const NavItem = ({ sub, toggleCollapse }) =>  (
   <button onClick={() => {
-    selectSub(sub);
     toggleCollapse();
   }}>
-    {sub.display_name}
+    <NavLink 
+      to={sub.url}
+      style={{display: 'block', height: '100%', textDecoration: 'none'}}
+    >
+      {sub.display_name}
+    </NavLink>
   </button>
 )
 
