@@ -14,6 +14,16 @@ const convertToSubUrl = (searchedSub) => {
     "/r/" + searchedSub + "/"
 }
 
+const filterPosts = (posts, filters) => {
+  return posts.filter(post => (
+    !checkTitleForFilters(post.data.title, filters)
+  ))
+}
+
+const checkTitleForFilters = (title, filters) => (
+  filters.some(filter => title.toLowerCase().indexOf(filter) > -1)
+)
+
 //Default sub r/all
 const defaultSub = {
   name: "all",
@@ -82,7 +92,7 @@ export default class Content extends Component {
       this.setState({invalidSub: true});
     } else {
       this.setState({
-        posts: posts,
+        posts: filterPosts(posts, this.props.filters),
         invalidSub: false
       });
     }
