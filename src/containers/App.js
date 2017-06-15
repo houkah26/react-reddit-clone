@@ -53,6 +53,7 @@ export default class App extends Component {
 							<Navigation 
 								collapsed={collapsed}
 								toggleCollapse={this.toggleCollapse}
+								filters={filters}
 							/>
 						</div>
 						<Switch>
