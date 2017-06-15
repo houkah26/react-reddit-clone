@@ -14,6 +14,8 @@
 
 5. Clean up CSS
 
+6. Animation for navigation on toggle
+
 ## Possible features/changes
 
 1. Change how CSS is implemented
@@ -24,7 +26,7 @@
 2. Rebrand as Trumpless-Reddit
     * Filter out any sub-reddits and posts containing a reference to Donald Trump
     
-3. Rebrand as unbsub-reddit
+3. Rebrand as unbsub/filter-reddit
     * Add the ability to specify certain terms to filter out of any posts
     
   
