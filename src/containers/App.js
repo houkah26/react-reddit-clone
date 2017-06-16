@@ -30,11 +30,15 @@ export default class App extends Component {
 	changeFilters = (action, filter) => {
 		const filterTerm = filter.toLowerCase();
 		this.setState((prevState) => {
+			const filters = prevState.filters;
 			switch (action) {
 				case "add":
-					return {filters: prevState.filters.push(filterTerm)};
+					if(!filters.includes(filterTerm)) 
+						{filters.push(filterTerm)}
+					return {filters: 
+						!filters.includes(filterTerm) ? filters.concat([filterTerm]) : filters}
 				case "remove":
-					return {filters: prevState.filters.filter((word) => word !== filterTerm)};
+					return {filters: filters.filter((word) => word !== filterTerm)};
 				default:
 					return prevState;
 			}
@@ -61,7 +65,11 @@ export default class App extends Component {
 								<Redirect to="/r/all" />
 							)}/>
 							<Route path="/r/:sub" render={props => (
-								<Content filters={filters} {...props} />
+								<Content 
+									filters={filters}
+									changeFilters={this.changeFilters}
+									{...props}
+								/>
 							)}/>
 							<Route component={InvalidUrl} />
 						</Switch>

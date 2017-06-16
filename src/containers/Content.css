@@ -3,8 +3,16 @@
   margin-right: 10px;
 }
 
-.content h2 {
-  margin: 0;
+.content .heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .heading>.title {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .content .invalid-sub {
