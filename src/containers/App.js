@@ -12,40 +12,70 @@ import Content from '../containers/Content';
 
 import './App.css';
 
+const defaultFilters = ["trump", "donald", "president"];
+
 export default class App extends Component {
-  state = {
-    collapsed: true, //state of nav
-  };
+	state = {
+		collapsed: true, // default state of nav
+		filters: defaultFilters // default array of filter words
+	};
 
-  toggleCollapse = (action) => {
-    const collapsed = action === "collapse" ? true : !this.state.collapsed;
-    this.setState({collapsed});
-  }
+	toggleCollapse = (action) => {
+		this.setState((prevState) => ({
+			// if no action toggle collapse state
+			collapsed: action === "collapse" ? true : !prevState.collapsed
+		}))
+	}
 
-  render() {
-    const { collapsed } = this.state;
+	changeFilters = (action, filter) => {
+		const filterTerm = filter.toLowerCase();
+		this.setState((prevState) => {
+			const filters = prevState.filters;
+			switch (action) {
+				case "add":
+					if(!filters.includes(filterTerm)) 
+						{filters.push(filterTerm)}
+					return {filters: 
+						!filters.includes(filterTerm) ? filters.concat([filterTerm]) : filters}
+				case "remove":
+					return {filters: filters.filter((word) => word !== filterTerm)};
+				default:
+					return prevState;
+			}
+		})
+	}
 
-    return (
-      <Router>
-        <div className="App">
-          <TitleBar toggleCollapse={this.toggleCollapse} />
-          <div className="container">
-            <div className="nav-container">
-              <Navigation 
-                collapsed={collapsed}
-                toggleCollapse={this.toggleCollapse}
-              />
-            </div>
+	render() {
+		const { collapsed, filters } = this.state;
+
+		return (
+			<Router>
+				<div className="App">
+					<TitleBar toggleCollapse={this.toggleCollapse} />
+					<div className="container">
+						<div className="nav-container">
+							<Navigation 
+								collapsed={collapsed}
+								toggleCollapse={this.toggleCollapse}
+								filters={filters}
+							/>
+						</div>
 						<Switch>
 							<Route exact path="/" render={() => (
 								<Redirect to="/r/all" />
 							)}/>
-							<Route path="/r/:sub" component={Content} />
+							<Route path="/r/:sub" render={props => (
+								<Content 
+									filters={filters}
+									changeFilters={this.changeFilters}
+									{...props}
+								/>
+							)}/>
 							<Route component={InvalidUrl} />
 						</Switch>
-          </div>
-        </div>
-      </Router>
-    );
-  }
+					</div>
+				</div>
+			</Router>
+		);
+	}
 }

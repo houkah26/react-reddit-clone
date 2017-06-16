@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Post from '../components/Post';
 import LoadingIcon from '../components/LoadingIcon';
 import InvalidSub from '../components/InvalidSub';
+import FilterMenu from './FilterMenu';
 
 import './Content.css';
 
@@ -13,6 +14,16 @@ const convertToSubUrl = (searchedSub) => {
     "/" + searchedSub + "/" :
     "/r/" + searchedSub + "/"
 }
+
+const filterPosts = (posts, filters) => {
+  return posts.filter(post => (
+    !checkTitleForFilters(post.data.title, filters)
+  ))
+}
+
+const checkTitleForFilters = (title, filters) => (
+  filters.some(filter => title.toLowerCase().indexOf(filter) > -1)
+)
 
 //Default sub r/all
 const defaultSub = {
@@ -90,17 +101,24 @@ export default class Content extends Component {
 
   render() {
     const { posts, sub, invalidSub } = this.state;
+    const filteredPosts = filterPosts(posts, this.props.filters);
 
     return (
       <div className="content">
         {invalidSub ? 
           <InvalidSub /> :
           <div>
-            <h2>r/{sub.name}</h2>
+            <div className="heading">
+              <span className="title">r/{sub.name}</span>
+              <FilterMenu
+                filters={this.props.filters}
+                changeFilters={this.props.changeFilters}
+              />
+            </div>
             <div>
                 {posts.length === 0 ?
                   <LoadingIcon /> :
-                  posts.map(post => (
+                  filteredPosts.map(post => (
                     <div key={post.data.id}>
                       <Post 
                         title={post.data.title}

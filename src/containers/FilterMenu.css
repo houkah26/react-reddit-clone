@@ -1,0 +1,45 @@
+.filter-menu {
+  padding-right: 1em;
+  position: relative;
+  font-size: 1.25em;
+}
+
+.filter-menu span, .filter-menu {
+  cursor: pointer;
+}
+
+.filter-menu .filters {
+  box-sizing: border-box;
+  position: absolute;
+  background-color: #f9f9f9;;
+  min-width: 120%;
+  border: 0.1px solid gray;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+  right: 0em;
+}
+
+.filter-menu .filters>div {
+  padding: 0.1em 0;
+}
+
+.filter-menu .filters.show {
+  display: block;
+}
+
+.filter-menu .filters:hover {
+  display: block;
+}
+
+.filter-menu .filters .filter-item:hover {
+  text-decoration: line-through;
+}
+
+.filter-menu .filters input {
+  width: 80%;
+  font-size: 0.8em;
+}
+
+.filter-menu .filters i {
+  font-size: 0.75em;
+}

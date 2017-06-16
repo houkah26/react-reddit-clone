@@ -28,6 +28,7 @@
 
 .title-bar .nav-toggler {
   margin-left: 0.25em;
+  padding-right: 0.25em;
 }
 
 .title-bar .nav-toggler-icon:hover {
