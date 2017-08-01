@@ -15,4 +15,5 @@ Front-end clone of Reddit using React.
 ## Technologies
 * Framework: React
 * UI: None, just plain ol' CSS
+* Deployed on heroku
 * Bootstrapped with Create-React-App
