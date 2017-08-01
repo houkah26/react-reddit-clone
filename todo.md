@@ -16,6 +16,8 @@
 
 6. Animation for navigation on toggle
 
+7. Add propTypes
+
 ## Possible features/changes
 
 1. Change how CSS is implemented
