@@ -10,13 +10,13 @@
     
 3. Tab selection for search results
 
-4. Deploy to Hearoku
-
 5. Clean up CSS
 
 6. Animation for navigation on toggle
 
 7. Add propTypes
+
+8. Organize components/containers
 
 ## Possible features/changes
 
